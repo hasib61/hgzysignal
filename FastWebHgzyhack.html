@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaming Prediction</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #000;
+      color: #0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .container {
+      width: 90%;
+      padding: 10px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 10px;
+      border: 2px solid #00ff00;
+      display: flex;
+      flex-direction: column;
+      height: 95vh;
+      position: relative;
+      z-index: 2;
+    }
+    h3 {
+      font-size: 32px;
+      font-weight: bold;
+    }
+    .box {
+      background: rgba(0, 255, 0, 0.2);
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .button {
+      background: #00ff00;
+      border: none;
+      color: #000;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 15px;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 18px;
+    }
+    iframe {
+      /* flex-grow: 1;  মুছে ফেললাম */
+      width: 100%;
+      height: 400px; /* নির্দিষ্ট উচ্চতা সেট করা হয়েছে */
+      border-radius: 10px;
+      border: none;
+      margin-top: 15px;
+    }
+    .hacking-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/spider-web.png');
+      z-index: 1;
+      opacity: 0.2;
+      animation: moveBackground 10s infinite linear;
+    }
+    @keyframes moveBackground {
+      0% { background-position: 0 0; }
+      25% { background-position: 20px 20px; }
+      50% { background-position: 40px 40px; }
+      75% { background-position: 20px 20px; }
+      100% { background-position: 0 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hacking-bg"></div>
+
+  <div class="container">
+    <h3>HR ZONE TEAM</h3>
+    <div class="box">Result: <span id="currentResult">Click to Show</span></div>
+    <button class="button" onclick="showResult()">Show Result</button>
+    <iframe src="http://hgzy9.com"></iframe>
+    <a href="https://t.me/+ZUUzdVW0JYU1YmZl" class="button" target="_blank">JOIN TELEGRAM</a>
+  </div>
+
+  <script>
+    let lastUpdated = 0;
+    function showResult() {
+      const now = Date.now();
+      if (now - lastUpdated >= 30000) { // ৩০ সেকেন্ড পরে পরিবর্তন হবে
+        const resultEl = document.getElementById('currentResult');
+        const result = Math.random() < 0.5 ? "SMALL" : "BIG";
+        resultEl.textContent = result;
+        lastUpdated = now;
+      } else {
+        alert("Wait 30 seconds before changing the result again!");
+      }
+    }
+  </script>
+
+</body>
+</html>
